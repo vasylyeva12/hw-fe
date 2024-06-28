@@ -36,26 +36,26 @@ return result
 
     // 1 вариант
     
-    // static assign(target, ...sources) {
-    //     sources.forEach(source => {
-    //         for (let key in source) {
-    //             if (source.hasOwnProperty(key)) {
-    //                 target[key] = source[key];
-    //             }
-    //         }
-    //     });
-    //     return target;
-    // }
+    static assign(target, ...sources) {
+        sources.forEach(source => {
+            for (let key in source) {
+                if (source.hasOwnProperty(key)) {
+                    target[key] = source[key];
+                }
+            }
+        });
+        return target;
+    }
 
     // 2 вариант
-    
-    static assign(target, source) {
+
+    // static assign(target, source) {
            
-                for (let key in source) {                   
-                    target[key] = source[key];                    
-                }          
-            return target;
-        }
+    //             for (let key in source) {                   
+    //                 target[key] = source[key];                    
+    //             }          
+    //         return target;
+    //     }
 }
 
 
@@ -69,4 +69,6 @@ console.log(Object2.entries(new_object));
 const target = {a: 1};
 const source1 = {b: 2};
 const source2 = {c: 3, a: 4};
+
+console.log('=================================');
 console.log(Object2.assign(target, source1, source2))
