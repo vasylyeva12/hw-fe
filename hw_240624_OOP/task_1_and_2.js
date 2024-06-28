@@ -24,27 +24,38 @@ class Users extends Permissions{
 
 class Object2{
     static entries(obj){
-        let entriesArr = [];
-        for (let key in obj) {
-            if (obj.hasOwnProperty(key)) {
-                entriesArr.push([key, obj[key]]);                
-            }
+        let result = [];
+        for (let key in obj) {            
+            result.push([key, obj[key]]);                
+            
         }
-return entriesArr
+return result
     }
     // * Доп задание 
     // К данному классу добавьте метод asign(), который будет реализован по такому же принципу, как вышеуказанный метод.
+
+    // 1 вариант
     
-    static assign(target, ...sources) {
-        sources.forEach(source => {
-            for (let key in source) {
-                if (source.hasOwnProperty(key)) {
-                    target[key] = source[key];
-                }
-            }
-        });
-        return target;
-    }
+    // static assign(target, ...sources) {
+    //     sources.forEach(source => {
+    //         for (let key in source) {
+    //             if (source.hasOwnProperty(key)) {
+    //                 target[key] = source[key];
+    //             }
+    //         }
+    //     });
+    //     return target;
+    // }
+
+    // 2 вариант
+    
+    static assign(target, source) {
+           
+                for (let key in source) {                   
+                    target[key] = source[key];                    
+                }          
+            return target;
+        }
 }
 
 
